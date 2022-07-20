@@ -50,7 +50,7 @@ double somaDoubleObrigatorio(
   return numero1 + numero2;
 }
 
-// se não informar o valor por default vai ser zero, se informar, é atribuido o valor informado;
+// se não informar o valor por default vai ser zero, se informar, é atribuido o valor definido;
 double somaDoubleDefault({double numero1 = 0, double numero2 = 0}) {
   return numero1 + numero2;
 }
