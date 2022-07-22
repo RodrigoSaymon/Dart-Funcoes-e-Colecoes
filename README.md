@@ -317,6 +317,76 @@ final listaBusca2 = ['Rodrigo', 'Elão', 'Heitor'];
 ![][codigo] 
 
 
+<h1 p align="left"><img width="25" height ="25" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg">  Referência de Memória  - Aula 3
+
+<h2><p align="left">
+
+Existem métodos nos quais criamos uma nova variável, e outros onde trabalhamos dentro da própria variável.
+
+- **.hashCode** - Verifica o número de referência de memória da variável.
+
+Deve-se ter muito cuidado ao manipular o material recebido, para não modificar por acidente.
+O ideal é sempre criar uma nova referência de memória para manter a original em segurança.
+
+**Forma adequada de se gerar uma nova referência de memória com uma lista:**
+````dart
+var listaRecebida = ['Rodrigo'];
+var novaLista = [...listaRecebida];
+  novaLista.add('Rodrigo Saymon');
+  return novaLista;
+````
+
+- Cria-se uma nova lista e dentro dela adicionamos a lista recebida, dessa forma duplicamos, mantendo a original intacta.
+
+
+
+<h4>
+
+````dart
+// Quando passo a variável ‘nome’ para dentro da função2, devido as exigências dos parâmetros serem equivalentes, a função2 executa;
+
+void main() {
+  var lista = ['Rodrigo'];
+  print(lista);
+  funcao(lista);
+  print(lista);
+
+  var nome = 'Rodrigo Saymon';
+
+  funcao2(nome);
+  print(nome);
+  print(nome.hashCode);
+}
+void funcao(List<String> nomes) {
+  nomes.add('Saymno');
+}
+void funcao2(String nome) {
+  nome += 'Academia do Flutter';
+  print(nome);
+  print(nome.hashCode);
+}
+
+List<String> add(List<String> nomes) {
+  var novoNome = [...nomes];
+  novoNome.add('Rodrigo Saymon');
+  return novoNome;
+}
+````
+---
+
+<h4 align="center">Código desenvolvido no curso Academia do Flutter 2.0 ministrado por Rodrigo Rahman.
+
+---
+
+![][codigo2]
+
+[<h2>Linkedin](https://www.linkedin.com/in/rodrigotbass/)
+
+
+![][codigo] 
+
+
+
 [codigo]: https://github.com/RodrigoSaymon/Dart-Fundamentos/blob/main/src/assets/Banner-4.png?raw=true
 
 [codigo2]: https://github.com/RodrigoSaymon/Dart-Fundamentos/blob/main/src/assets/Banner-2.jpg?raw=true
