@@ -387,6 +387,88 @@ List<String> add(List<String> nomes) {
 
 
 
+
+
+<h1 p align="left"><img width="25" height ="25" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg">  Set  - Aula 4
+
+<h2><p align="left">
+
+É semelhante a uma lista, sua principal diferença está na forma de inicialização. Pode ser representado das seguintes formas:
+````dart
+  var numerosSet1 = <int?>{1, 2, 3};
+  var numerosSet2 = Set();
+  ````
+
+A forma de adicionar itens e as características do nullsafete são iguais a lista. As principais características do set são:
+
+- **Não permite valores duplicados;**
+- **.toSet()** - transforma uma lista em um set;
+- **.difference** - mostrando as diferenças entre 2 set's ;
+- **.union** - une os elementos de dois set’s;
+- **.intersection** - mostrando as semelhaças entre 2 set's ;
+- **.lookup** - faz a busca de um elemento especifico dentro de um set;
+
+Diferentemente da lista, que pegamos cada elemento pelo número do índice, no set utilizamos o .elementAt para fazer essa busca.
+
+
+<h4>
+
+````dart
+void main() {
+  // Semelhnte a uma lista, sua principal diferença estáa na forma de inicialização;
+  // pode ser representados das seguintes formas:
+  var numerosSet1 = <int?>{1, 2, 3};
+  var numerosSet2 = Set();
+
+  //  a forma de adicionar iten e as caracteristicas do null safete são igueis a lista;
+
+  numerosSet1.add(1);
+  numerosSet1.add(2);
+  numerosSet1.add(3);
+  numerosSet1.add(null);
+  numerosSet1.add(2);
+  numerosSet1.add(1);
+
+  print(numerosSet1);
+
+  //  Ele não permite valores duplicados;
+  // .toSet() - transforma uma lista em um set;
+
+  var numeros = <int?>[5, 6, 7, 8, 9, 10].toSet();
+  var Setlist = numeros.toList();
+  //  .difference - faz a comparação entre 2 set's mostrando as diferenças;
+  // quais dos numerosSet1 não tem no numeros;
+  print(numeros.difference(numerosSet1));
+  // .union - une os elementos de duas listas;
+  print(numeros.union(numerosSet1));
+  // .intersection - mostra os elementos semelhantes na comparação entre duas listas;
+  print(numeros.intersection(numerosSet1));
+  // .lookup - faz a busca de um elemento dentro de um set
+  print(numeros.lookup(1));
+
+  //  diferentemente da lista, que pegamos cada elemento pelo numero do index,
+  // no set utilizamos o .elementAt para fazer a busca por indice.
+  // na lista;
+  Setlist[1];
+  // no set;
+  numeros.elementAt(1);
+}
+
+````
+---
+
+<h4 align="center">Código desenvolvido no curso Academia do Flutter 2.0 ministrado por Rodrigo Rahman.
+
+---
+
+![][codigo2]
+
+[<h2>Linkedin](https://www.linkedin.com/in/rodrigotbass/)
+
+
+![][codigo] 
+
+
 [codigo]: https://github.com/RodrigoSaymon/Dart-Fundamentos/blob/main/src/assets/Banner-4.png?raw=true
 
 [codigo2]: https://github.com/RodrigoSaymon/Dart-Fundamentos/blob/main/src/assets/Banner-2.jpg?raw=true
