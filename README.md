@@ -467,6 +467,179 @@ void main() {
 
 
 ![][codigo] 
+<h1 p align="left"><img width="25" height ="25" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg">  Map  - Aula 5
+
+<h2><p align="left">
+
+A representação do map à primeira vista, assemelha-se ao set, a diferença se dá pela quantidade de valores inseridos no generics.
+- No set apenas um valor é inserido nos generics:
+````dart
+  final paciente1 = <int>{};
+  ````
+
+- No map dois valor são inserido nos generics. Representa a chave e o valor que recebe;
+````dart
+  final paciente2 = <String, String>{
+    'nome': 'Rodrigo',
+    'idade': '37'
+````
+O map pode ser nulo, mas se for criado, precisa conter a chave e seu valor:
+````dart
+<String, String>?
+````
+O map e o valor não podem ser nulo, mas  a chave pode>:
+````dart
+<String?, String>
+````
+O map e a chave não podem ser nulo, mas  o valor pode;
+````dart
+<String, String?>
+````
+
+- **.putIfAbsent** - adiciona itens no map se a chave não existir;
+
+- **.update** - atualiza uma chave se ela existir;
+
+- **ifAbsent** - usado junto com o .update. Atualiza uma chave se ela existir, mas se ela não existir, a nova chave é adicionada no map;
+
+Acessar o valo através da chave:
+````dart
+print(produto['nome']);
+````
+- **.forEach** - varre um map. Possui chave e valor e não pode ser utilizado em processos assíncronos;
+
+- **.for In** - varre um map. Possui chave e valor e pode ser utilizado em processos assíncronos;
+````dart
+  for (var entry in produto.entries) {
+    print('Chave ${entry.key} : ${entry.value}');
+  ````
+
+Consigo fazer uma busca somete pelas chaves ou valores;
+````dart
+  for (var key in produto.keys) {
+      print('chave: $key');
+    }
+  for (var value in produto.values) {
+    print('chave: $value');
+  }
+  ````
+
+  - **.map** - posso gerar um novo map a partir de um map existente, com novas características:
+  ````dart
+  var novoMap = produto.map((key, value) {
+    return MapEntry(key + '_nova', value.toUpperCase());
+  });
+  ````
+
+podemos criar map dentro de map. o resultado se assemelha aos arquivos json:
+````dart
+  var mapa = <String, Object>{
+    'nome': 'Rodrigo',
+    'curso':[{ 
+      'nome': 'academia do Flutter',
+      'descrição': 'Melhor curso do Brasil',
+    },
+    { 
+      'nome': 'Arquiteto Flutter',
+      'descrição': 'Melhor curso do Brasil',
+    }
+  ],
+};
+````
+
+
+<h4>
+
+````dart
+void main() {
+  //  representação do map
+  //  a primeira vista ele se assemelha ao set, A difrenciação se da pela quantidade de valores inseridos no generics;
+
+// no set um valor inserido nos generics
+  final paciente1 = <int>{};
+
+// no map doi valor inserido nos generics
+// que representam uma chave e o valor que ele recebe
+  final paciente2 = <String, String>{
+    'nome': 'Rodrigo',
+    'idade': '37'
+// o map pode ser nulo, mas se for criado, precisa conter a chave e o valor
+    // <String, String>?
+
+    // o map e o valor não podem ser nulo, mas  a chave pode;
+    // <String?, String>
+
+    // o map e a chave não podem ser nulo, mas  o valor pode;
+    // <String, String?>
+  };
+  var produto = <String, String>{};
+// .putIfAbsent(key, () => null) - adiciona itens na lista se a chave não existir;
+  produto.putIfAbsent('nome', () => 'Cerveja');
+  // .update(key, (value) => null) - atualiza uma chave se ela exitir;
+  produto.update('bebida', (value) => 'cerveja');
+  // ifAbsent: () => '10') - usado junto com o .update. que atualiza uma chave se ela exitir;
+  //  se ela não existir, a nova chave é adicionada no map;
+  produto.update('preço', (value) => '10', ifAbsent: () => '10');
+
+  //  acessar o valo através da chave
+
+  print(produto['nome']);
+
+// .forEach - varre uma map, com chave e valor. não pode ser utilizado em procssos assincronos
+  produto.forEach((key, value) {});
+
+// .forIn - varre uma map, com chave e valor. pode ser utilizado em procssos assincronos
+  for (var entry in produto.entries) {
+    print('Chave ${entry.key} : ${entry.value}');
+
+// consigo tambem fazer uma busca somete pelas chaves ou valores;
+
+    for (var key in produto.keys) {
+      print('chave: $key');
+    }
+  }
+  for (var value in produto.values) {
+    print('chave: $value');
+  }
+
+  //  .map - posso gerar um novo map a partir de um map existente, com novas caracteristicas;
+
+  var novoMap = produto.map((key, value) {
+    return MapEntry(key + '_nova', value.toUpperCase());
+  });
+
+  // podemos criar map dentro de map. o resultado se assemelha aos arquivos json
+
+  var mapa = <String, Object>{
+    'nome': 'Rodrigo',
+    'curso':[{ 
+      'nome': 'academia do Flutter',
+      'descrição': 'Melhor curso do Brasil',
+    },
+    { 
+      'nome': 'Arquiteto Flutter',
+      'descrição': 'Melhor curso do Brasil',
+    }
+  ],
+  };
+ }
+}
+````
+---
+
+<h4 align="center">Código desenvolvido no curso Academia do Flutter 2.0 ministrado por Rodrigo Rahman.
+
+---
+
+![][codigo2]
+
+[<h2>Linkedin](https://www.linkedin.com/in/rodrigotbass/)
+
+
+![][codigo] 
+
+
+
 
 
 [codigo]: https://github.com/RodrigoSaymon/Dart-Fundamentos/blob/main/src/assets/Banner-4.png?raw=true
