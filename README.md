@@ -467,6 +467,7 @@ void main() {
 
 
 ![][codigo] 
+
 <h1 p align="left"><img width="25" height ="25" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg">  Map  - Aula 5
 
 <h2><p align="left">
@@ -637,6 +638,95 @@ void main() {
 
 
 ![][codigo] 
+
+<h1 p align="left"><img width="25" height ="25" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg">  Exception  - Aula 6
+
+<h2><p align="left">
+
+Exceção é um erro dentro do sistema, como alguma convenção ou execução de função que não conseguiu ser concluída. Para estes erros, o Dart nos traz formas de realizarmos o tratamento e trazer uma resposta mais amigável para o usuário.
+ 
+Nas estruturas de erro usamos o try catch:
+
+- **try** - estabelece o corpo da função que queremos executar;
+
+- **catch** - se no try existir algum erro, podemos printar uma mensagem de exceção para o usuário. Chamamos esse tipo de exceção de genérica e com ela, podemos tratar qualquer exceção;
+
+O catch, vem acompanhado de um parâmetro que podem conter as letras 'e' e 's' onde:
+
+- **e** - tipo de erro;
+- **s (StackTrace)** - mostra todas as estruturas internas por onde se iniciou e percorreu o problema;
+````dart
+} catch (e, s) {
+print('erro ao executar programa');
+````
+
+Podemos ter vario caths, um para cada erro. O uso do catch em exceções especificas, não é obrigatório.
+
+- **on** - utilizado para sinalizar as exceções especificas:
+````dart
+} on FormatException{
+print('erro ao converter idade');
+````
+
+Os caths devem ser organizados de forma hierarquizada. Primeiro colocamos as exceções específicas e por fim as exceções genéricas.
+
+- **finally** - sempre será executado independente de erro. Ele é importante para realizar alguma ação, independentemente de ter ocorrido erro ou não, como por exemplo fazer abertura de conexão com o banco de dados, que não pode ser largada aberta, e precisa ser fechada.
+````dart
+  } finally {}
+}
+````
+
+- **throw** - Posso força um erro lançando uma exceção:
+````dart
+  if (idadeParse == 38) {
+    throw Exception();
+  ````
+
+- **Exception** - todas as exceções são suas filhas. Pela hierarquia ele precisa ser jogado para baixo das exceções especificas e acima da exceção genérica;
+
+
+
+<h4>
+
+````dart
+void main() {
+  String idade = '38 anos';
+  String? nome;
+  var idadeParse = int.parse(idade);
+
+  if (idadeParse == 38) {
+    throw Exception();
+  }
+
+  try {
+    int.parse(idade);
+    nome!.toLowerCase();
+  } on FormatException catch (e, s) {
+    print('erro ao contverter idade');
+  } on TypeError catch (e) {
+    print('erro ao contverter idade');
+  } on Exception {
+    print('erro idade = 38');
+  } catch (erro) {
+    print('erro ao executar programa');  
+  } finally {}
+}
+````
+---
+
+<h4 align="center">Código desenvolvido no curso Academia do Flutter 2.0 ministrado por Rodrigo Rahman.
+
+---
+
+![][codigo2]
+
+[<h2>Linkedin](https://www.linkedin.com/in/rodrigotbass/)
+
+
+![][codigo] 
+
+
+
 
 
 
