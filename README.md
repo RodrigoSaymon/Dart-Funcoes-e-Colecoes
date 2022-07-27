@@ -727,8 +727,67 @@ void main() {
 
 
 
+<h1 p align="left"><img width="25" height ="25" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg">  Importe  - Aula 7
+
+<h2><p align="left">
+
+Importe é capacidade de trazer funções ou classes de outros arquivos. Existem duas formas de realizar o import. A partir do endereço arquivo:
+````dart
+import 'somas/soma.dart';
+````
+
+Por meio de package, onde tenho acesso a raiz da pasta lib. É muito usado para importar projetos externos:
+````dart
+Import 'package:colecoes/07_imports/somas/soma.dart';
+````
+
+Quando existem funções iguais em arquivos diferentes, os arquivos importados ficarão em conflito. Para resolver isso, podemos dar apelidos aos importes da seguinte forma:
+
+No import:
+````dart
+import 'somas/soma.dart' as soma;
+import 'somas copy/soma.dart' as novasoma;
+````
+
+Na função ou classe:
+````dart
+var totalDouble = soma.somaDouble(10.1, 5.1);
+var totalInteiros = novaSoma.somaInteiros(10, 5);
+````
 
 
+<h4>
+
+````dart
+import 'somas/soma.dart' as soma;
+import 'somas copy/soma.dart' as novaSoma;
+
+void main() {
+
+  var totalDouble = soma.somaDouble(10.1, 5.1);
+  var totalInteiros = novaSoma.somaInteiros(10, 5);
+
+  print(totalDouble);
+  print(totalInteiros);
+}
+
+int somaInteiros(int numero1, int numero2) => numero1 + numero2;
+double somaDouble(double numero1, double numero2) {
+  return numero1 + numero2;
+}
+````
+---
+
+<h4 align="center">Código desenvolvido no curso Academia do Flutter 2.0 ministrado por Rodrigo Rahman.
+
+---
+
+![][codigo2]
+
+[<h2>Linkedin](https://www.linkedin.com/in/rodrigotbass/)
+
+
+![][codigo] 
 
 
 
