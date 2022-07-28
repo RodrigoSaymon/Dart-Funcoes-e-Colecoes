@@ -789,6 +789,100 @@ double somaDouble(double numero1, double numero2) {
 
 ![][codigo] 
 
+<h1 p align="left"><img width="25" height ="25" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg">  Enums  - Aula 8
+
+<h2><p align="left">
+
+Enums é relação de atributos enumerados, com valores estativos, onde posso chamá-los usando o alto complete.
+````dart
+enum cores { azul, vermelho, verde, amarelo, marrom, preto }
+````
+
+- **.name** - consigo imprimir o nome da propriedade;
+
+````dart
+  print(cores.azul.name);
+  ````
+
+- **.byName** - consigo imprimir o nome do enum e da propriedade;
+````dart
+  var corAzul_15 = cores.values.byName('azul');
+  print(corAzul_15);
+  ````
+
+- **.asMap** - transformo meu enum em um map, com a chave sendo o índice e o valor o atributo propriamente dito;
+````dart
+  var coresMap = cores.values.asMap();
+  print(coresMap);
+  ````
+
+- **.asNameMap** - transformo meu enum em um map, com chave sendo o atributo propriamente dito;
+````dart
+  var coresMapName = cores.values.asNameMap();
+  var corAzulMap = coresMapName[cores.azul];
+   ````
+
+Se for utilizar o switch, ele traz todos os atributos do enum de forma detalhada;
+
+<h4>
+
+````dart
+void main() {
+  var cor = cores.vermelho;
+  if (cor == cores.vermelho) {}
+
+  print(cores.azul.name);
+
+  var corAzul_15 = cores.values.byName('azul');
+  print(corAzul_15);
+
+  var coresMap = cores.values.asMap();
+  print(coresMap);
+
+  var coresMapName = cores.values.asNameMap();
+  print(coresMapName);
+  var corAzulMap = coresMapName[cores.azul];
+
+  switch (cor) {
+    case cores.azul:
+      // TODO: Handle this case.
+      break;
+    case cores.vermelho:
+      // TODO: Handle this case.
+      break;
+    case cores.verde:
+      // TODO: Handle this case.
+      break;
+    case cores.amarelo:
+    // TODO: Handle this case.
+    case cores.marrom:
+      // TODO: Handle this case.
+      break;
+    case cores.preto:
+      // TODO: Handle this case.
+      break;
+  }
+}
+
+enum cores { azul, vermelho, verde, amarelo, marrom, preto }
+````
+---
+
+<h4 align="center">Código desenvolvido no curso Academia do Flutter 2.0 ministrado por Rodrigo Rahman.
+
+---
+
+![][codigo2]
+
+[<h2>Linkedin](https://www.linkedin.com/in/rodrigotbass/)
+
+
+![][codigo] 
+
+
+
+ 
+
 
 
 [codigo]: https://github.com/RodrigoSaymon/Dart-Fundamentos/blob/main/src/assets/Banner-4.png?raw=true
