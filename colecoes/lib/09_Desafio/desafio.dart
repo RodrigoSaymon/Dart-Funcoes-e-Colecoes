@@ -59,17 +59,14 @@ void main() {
   }
   maiores.forEach(print);
   print('');
+  print('Encontre a pessoa mais velha e apresente o nome dela');
 
-  var maisVelho = [];
-
-  for (var pessoa in pessoasSet) {
-    var dados = pessoa.split('|');
-    var nome = dados[0];
-    int idade = int.parse(dados[1]);
-
-    if (idade > 18) {
-      maisVelho.add(idade);
-      maisVelho.sort();
-    }
-  }
+  final pessoasOrdenada = [...pessoasSet];
+  pessoasOrdenada.sort((p1, p2){
+    final idadep1 = int.tryParse(p1[1])??0;
+    final idadep2 = int.tryParse(p2[1])??0;
+    return idadep1.compareTo(idadep2);
+  });
+  final pessoaMaisVelha = pessoasOrdenada.first;
+  print('A pessoa mais velha é ${pessoaMaisVelha[0]} e tem ${pessoaMaisVelha[1]}');
 }
